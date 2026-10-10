@@ -1,0 +1,71 @@
+
+#ht-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 2147483646;
+  background: rgba(0,0,0,0.45);
+  backdrop-filter: blur(6px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease;
+  font-family: 'Noto Sans Devanagari', system-ui, sans-serif;
+}
+#ht-overlay.visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+.ht-overlay-content {
+  background: white;
+  padding: 28px 32px;
+  border-radius: 16px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.25);
+  text-align: center;
+  min-width: 300px;
+}
+.ht-spinner {
+  width: 36px;
+  height: 36px;
+  border: 3px solid #e5e7eb;
+  border-top-color: #2563eb;
+  border-radius: 50%;
+  animation: ht-spin 0.8s linear infinite;
+  margin: 0 auto 14px;
+}
+@keyframes ht-spin { to { transform: rotate(360deg); } }
+.ht-overlay-text {
+  font-size: 16px;
+  font-weight: 600;
+  color: #111827;
+  margin-bottom: 8px;
+}
+.ht-overlay-progress {
+  font-size: 13px;
+  color: #6b7280;
+  margin-bottom: 16px;
+}
+.ht-btn-secondary {
+  padding: 8px 16px;
+  border-radius: 8px;
+  border: 1px solid #d1d5db;
+  background: white;
+  cursor: pointer;
+  font-size: 13px;
+}
+.ht-btn-secondary:hover { background: #f3f4f6; }
+
+#ht-selection-host {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+  z-index: 2147483647;
+}
+
+/* Mark translated nodes subtly */
+html.ht-translated [data-ht-translated="true"] {
+  transition: background 0.3s;
+}
